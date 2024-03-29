@@ -44,6 +44,7 @@ spec:
           - name: test
             image: "tanzukorea.azurecr.io/build-cluster/gradle:latest"
             script: |-
+              #!/bin/bash
               cd `mktemp -d`
               wget -qO- $(params.source-url) | tar xvz -m
               pwd
