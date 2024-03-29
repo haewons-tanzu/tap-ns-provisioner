@@ -44,13 +44,13 @@ spec:
           - name: test
             image: "tanzukorea.azurecr.io/build-cluster/gradle:latest"
             script: |-
-              #!/usr/bin/env bash
               cd `mktemp -d`
               wget -qO- $(params.source-url) | tar xvz -m
               pwd
               MVNW=mvnw
               GRADLE="build.gradle"
               if [ -f "$MVNW" ]; then
+                  chmod +x ./mvnw
                   ./mvnw test
               elif [ -f "$GRADLE" ]; then
                   gradle test --debug
