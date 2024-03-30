@@ -42,7 +42,8 @@ spec:
               type: RuntimeDefault
         steps:
           - name: test
-            image: "tanzukorea.azurecr.io/build-cluster/gradle:latest"
+            image: bitnami/gradle:latest
+            #image: "tanzukorea.azurecr.io/build-cluster/gradle:latest"
             script: |-
               cd `mktemp -d`
               wget -qO- $(params.source-url) | tar xvz -m
